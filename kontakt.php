@@ -1,3 +1,17 @@
+<?php 
+$dan = (int) date ("N");
+$sat = (int) date ("G");
+
+
+if ($dan >= 1 && $dan <=5 && $sat >= 8 && $sat <= 16){
+    $obavijest = "Otvoreno — radimo do 16:00";
+} elseif ($dan >= 6 && $dan <= 7 && $sat >= 9 && $sat <= 13) {
+    $obavijest = "Otvoreno — radimo do 13:00";
+} else {
+    $obavijest = "Zatvoreno";
+}
+?>
+
 <!DOCTYPE html>
 <!-- TSD-4RT | Marko Vuljanković | 22.09.2026. -->
 <html lang="hr">
@@ -18,6 +32,7 @@ $trenutna_stranica = "kontakt";
 include 'zaglavlje.php'; ?>
 
     <main id="sadrzaj">
+        <p> <?php echo date("n. Y");?></p>
         <div class="wrap page-hero">
             <p class="crumbs"><a href="index.php">Naslovnica</a> / Kontakt</p>
             <h1>Javite nam se</h1>
@@ -68,6 +83,22 @@ include 'zaglavlje.php'; ?>
                     <div class="map-wrap" style="margin-top:1rem;">
                         <iframe title="Karta: Vulnguard, Ulica grada Vukovara 269d, Zagreb" src="https://maps.google.com/maps?q=Ulica%20grada%20Vukovara%20269d%20Zagreb&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Pon-Pet</td>
+                            <td>Subota</td>
+                            <td>Nedjelja</td>
+                        </tr>
+                        <tr>
+                            <td>8:00 - 16:00</td>
+                            <td>9:00 - 13:00</td>
+                            <td>Ne radimo</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <p> <?php echo $obavijest; ?></p>
                 </div>
             </div>
         </section>
